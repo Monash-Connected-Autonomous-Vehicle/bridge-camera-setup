@@ -18,6 +18,9 @@ function wait_for_roscore() {
   echo "ROS master is running."
 }
 
+# since only one instance of roscore can run at a time
+pkill roscore
+
 # 1. Start Docker with ROS Noetic and ROS master in the background
 rocker --x11 --user --privileged \
     --volume /dev/shm /dev/shm --network=host -- osrf/ros:noetic-desktop \
