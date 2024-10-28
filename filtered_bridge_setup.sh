@@ -38,7 +38,7 @@ wait_for_roscore
 # 2. Start ROS 1-ROS 2 bridge in the background
 source /opt/ros/humble/setup.bash
 source ~/ros-humble-ros1-bridge/install/local_setup.bash
-ros2 run ros1_bridge dynamic_bridge --bridge-all-topics &
+ros2 run ros1_bridge parameter_bridge &
 
 # 3. SSH into the NVIDIA device
 echo "Connecting to NVIDIA device at 192.168.1.181..."
