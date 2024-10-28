@@ -45,7 +45,7 @@ echo "Connecting to NVIDIA device at 192.168.1.181..."
 ssh nvidia@192.168.1.181 << 'EOF'
     # Run the PX2 setup script
     echo "Running PX2 setup script..."
-    ./px2_setup.sh
+    ./filtered_px2_setup.sh
 EOF
 
 echo "All processes have been started in the background."
