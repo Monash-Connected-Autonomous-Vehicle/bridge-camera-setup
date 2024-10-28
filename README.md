@@ -21,3 +21,9 @@ to test:
 
 ![image.png](image.png)
 
+## Attempting to improve camera framerate
+- limiting topics sent over the bridge
+
+- turn compressed image into image using command:
+
+`ros2 run image_transport republish compressed raw --ros-args --remap in/compressed:=/gmsl_camera/port_0/cam_0/image_raw/compressed --remap out:=/image`

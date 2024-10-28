@@ -6,6 +6,9 @@ export ROS_MASTER_URI=http://192.168.1.2:11311
 # Set the ROS IP address for the PX2
 export ROS_IP=192.168.1.181
 
+# load params for filtering topics
+rosparam load /home/nvidia/Downloads/bridge.yaml
+
 # Navigate to the workspace where the camera launch file is located
 cd ~/Documents/ros_gmsl_ws
 
