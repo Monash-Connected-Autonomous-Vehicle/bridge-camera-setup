@@ -1,4 +1,5 @@
 #!/bin/bash
+export LD_LIBRARY_PATH=/usr/lib
 
 # Set the ROS master URI to the ROS 1 master running on the Docker container
 export ROS_MASTER_URI=http://192.168.1.2:11311
