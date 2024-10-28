@@ -1,0 +1,7 @@
+# Following example from here: https://github.com/ros2/ros1_bridge/blob/3d5328dc21564d2130b4ded30afe5cd1c41cf033/README.md#example-4-bridge-only-selected-topics-and-services
+
+topics:
+  -
+    topic: /gmsl_camera/port_0/cam_0/image_raw  # Topic name on both ROS 1 and ROS 2
+    type: sensor_msgs/msg/Image  # Type of topic to bridge
+    queue_size: 100  # Queue size
