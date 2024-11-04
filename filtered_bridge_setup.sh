@@ -20,6 +20,7 @@ function wait_for_roscore() {
 
 # since only one instance of roscore can run at a time
 pkill roscore
+pkill rosmaster
 
 # 1. Start Docker with ROS Noetic and ROS master in the background
 rocker --x11 --user --privileged \
