@@ -39,7 +39,7 @@ wait_for_roscore
 # 2. Start ROS 1-ROS 2 bridge in the background (to be done on the Twizy's Alienware)
 source /opt/ros/humble/setup.bash
 source ~/ros-humble-ros1-bridge/install/local_setup.bash
-rosparam load /home/mcav/bridge-camera-setup/bridge.yaml & 
+rosparam load ./bridge.yaml & 
 ros2 run ros1_bridge parameter_bridge &
 
 # 3. SSH into the NVIDIA device
