@@ -50,5 +50,4 @@ ssh nvidia@192.168.1.181 << 'EOF'
     ./px2_setup.sh
 EOF
 
-ros2 run image_transport republish compressed raw --ros-args --remap in/compressed:=/gmsl_camera/port_0/cam_0/image_raw/compressed --remap out:=/image &
 echo "All processes have been started in the background."
