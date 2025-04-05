@@ -25,4 +25,10 @@ export FINAL_CONTAINER_CMD="\"$CONTAINER_CMD\""
     
 rocker --x11 --user --privileged \
     --volume /dev/shm:/dev/shm --network=host -- osrf/ros:noetic-desktop \
-    "bash -c  $FINAL_CONTAINER_CMD"
+    "bash -c  $FINAL_CONTAINER_CMD" &
+
+    
+# 2. Start ROS 1-ROS 2 bridge 
+source /opt/ros/humble/setup.bash
+source ~/ros-humble-ros1-bridge/install/local_setup.bash
+ros2 run ros1_bridge dynamic_bridge --bridge-all-topics 
