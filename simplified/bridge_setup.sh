@@ -4,14 +4,20 @@
 pkill roscore
 pkill rosmaster
 
-# Check if an IP address is passed as a parameter, otherwise, exit with an error
+# Check if an IP address is passed as a parameter, otherwise default to the local IP
 if [ -z "$1" ]; then
-    echo "Error: No IP address provided. Usage: ./bridge_setup.sh <HOST_IP_ADDRESS>"
-    exit 1
+    echo "No IP address provided. Using the local machine's IP address."
+    ROS_IP=$(hostname -I | awk '{print $1}')
+    if [ -z "$ROS_IP" ]; then
+        echo "Error: Unable to determine the local machine's IP address."
+        exit 1
+    fi
+else
+    # Use the provided IP address
+    ROS_IP=$1
 fi
 
-# Set the ROS master URI and IP based on the parameter passed
-ROS_IP=$1
+# Set the ROS master URI based on the ROS_IP
 export ROS_MASTER_URI=http://$ROS_IP:11311
 export ROS_IP
 
