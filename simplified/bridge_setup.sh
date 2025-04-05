@@ -18,12 +18,11 @@ else
 fi
 
 # Set the ROS master URI based on the ROS_IP
-export ROS_MASTER_URI=http://$ROS_IP:11311
 export ROS_IP
-
-# Start Docker with ROS Noetic and ROS master in the background
+export ROS_MASTER_URI=http://$ROS_IP:11311
+export CONTAINER_CMD="sudo apt update; sudo apt install -y tilix; export ROS_MASTER_URI=$ROS_MASTER_URI; export ROS_IP=$ROS_IP; roscore"
+export FINAL_CONTAINER_CMD="\"$CONTAINER_CMD\""
+    
 rocker --x11 --user --privileged \
-    --volume /dev/shm:/dev/shm --network=host --osrf/ros:noetic-desktop \
-    -e ROS_MASTER_URI=$ROS_MASTER_URI \
-    -e ROS_IP=$ROS_IP \
-    bash -c "sudo apt update; sudo apt install -y tilix; roscore"
+    --volume /dev/shm:/dev/shm --network=host -- osrf/ros:noetic-desktop \
+    "bash -c  $FINAL_CONTAINER_CMD"
