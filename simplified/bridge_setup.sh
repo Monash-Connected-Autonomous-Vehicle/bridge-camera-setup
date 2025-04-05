@@ -24,7 +24,7 @@ export ROS_IP
 # Start Docker with ROS Noetic and ROS master in the background
 rocker --x11 --user --privileged \
     --volume /dev/shm:/dev/shm --network=host -- osrf/ros:noetic-desktop \
-    'bash -c "sudo apt update; sudo apt install -y tilix; 
+    bash -c "sudo apt update; sudo apt install -y tilix; 
               export ROS_MASTER_URI=$ROS_MASTER_URI;
               export ROS_IP=$ROS_IP;
-              roscore"'
+              roscore"

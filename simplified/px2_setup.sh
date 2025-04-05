@@ -2,8 +2,6 @@
 
 pkill '^gmsl_n_cameras'
 
-export LD_LIBRARY_PATH=/usr/lib
-
 # Check if the ROS_MASTER_URI is passed as an argument
 if [ -z "$1" ]; then
     echo "Error: ROS_MASTER_URI not provided. Usage: ./px2_setup.sh <HOST_IP> (i.e. twizy's IP)"
@@ -11,10 +9,12 @@ if [ -z "$1" ]; then
 fi
 
 # Set the ROS_MASTER_URI to the parameter passed
-export ROS_MASTER_URI=$1
+export ROS_MASTER_URI=http://$1:11311
 
 # Get the IP address of the current laptop (assuming it's on a local network)
 export ROS_IP=$(hostname -I | awk '{print $1}')
+
+export LD_LIBRARY_PATH=/usr/lib
 
 # Check if we got a valid IP address
 if [ -z "$ROS_IP" ]; then
